@@ -1,0 +1,58 @@
+/*
+  1. async
+    - 함수를 비동기로 함수로 만들어주는 키워드
+    - 함수가 Promise를 반환하도록 변환해주는 메서드
+*/
+async function getData() {
+  return {
+    name: "한수영",
+    id: "sooyoung",
+  };
+}
+
+/* 
+[[Prototype]] : Promise
+[[PromiseState]] : "fulfilled"
+[[PromiseResult]] : Object
+    id : "sooyoung"
+    name : "한수영"
+    ...
+*/
+console.log(getData()); // Promise
+
+async function getPromise() {
+  // 반환값 자체가 Promise인 경우
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        name: "한수영",
+        id: "sooyoung",
+      });
+    }, 1500);
+  });
+}
+
+/* 
+[[Prototype]] : Promise
+[[PromiseState]] : "fulfilled"
+[[PromiseResult]] : Object
+    id : "sooyoung"
+    name : "한수영"
+    ...
+*/
+console.log(getPromise());
+
+/*
+  2. await
+    - async 함수 내부에서만 사용 가능한 키워드
+    - 비동기 함수가 다 처리되기를 기다리는 역할
+    - async 키워드가 붙어있지 않은 함수에서 사용 시 오류 발생
+      + Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+*/
+async function printData() {
+  // Promise가 종료되기를 기다림
+  const data = await getPromise(); // 종료가 되면, data에 값을 넣어줌
+  console.log(data); // {name: '한수영', id: 'sooyoung'}
+}
+
+printData();

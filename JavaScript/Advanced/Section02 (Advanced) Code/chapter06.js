@@ -1,0 +1,77 @@
+/*
+  1. 배열 순회
+    - 배열 인덱스 이용
+    - for ... of 문 이용
+    - 성능 상 큰 차이는 없음
+    - 차이점 : 인덱스를 이용하는 방식은 count 변수에 인덱스 저장, for ... of은 인덱스를 저장하지 않고 배열의 값을 순서대로 순회
+*/
+
+/*
+  1.1. 배열 인덱스 이용용
+*/
+let arr = [1, 2, 3];
+
+// arr.length  : 모든 배열이 가지고 있는 프로퍼티, 배열 길이를 저장
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]); // 1, 2, 3
+}
+
+let arr2 = [4, 5, 6, 7, 8];
+for (let i = 0; i < arr2.length; i++) {
+  console.log(arr[i]); // 4, 5, 6, 7, 8
+}
+
+/*
+  1.2. for ... of 반복문 : for 변수명 of 배열명
+*/
+for (let item of arr) {
+  console.log(item); // 1, 2, 3
+}
+
+/*
+  2. 객체  순회
+    - Object.keys 내장함수 사용
+    - Object.values 내장함수 사용
+    - for ... in 
+*/
+let person = {
+  name: "한수영",
+  age: 27,
+  hobby: "헬스",
+};
+
+/*
+  2-1. Object.keys 사용 : 객체에서 key 값들만 추출해 새로운 배열로 반환
+*/
+let keys = Object.keys(person);
+console.log(keys); // [name, age, hobby]
+
+for (let i = 0; i < keys.length; i++) {
+  console.log(key[i]); // [name, age, hobby]
+  console.log(key, person[i]); // name 한수영, age 27, hobby 헬스
+}
+
+for (let key of keys) {
+  const value = person[key];
+  console.log(key, value); // name 한수영, age 27, hobby 헬스
+}
+
+/*
+  2-2. Object.values 사용 : 객체에서 value 값만 뽑아 새로운 배열로 반환
+*/
+let values = Object.values(person);
+console.log(values); // [한수영, 27, 헬스]
+
+for (let value of values) {
+  console.log(value); // 한수영, 27, 헬스
+}
+
+/*
+  2-3 for ... in : 객체만을 위한 특수한 반복문
+    - in 뒤에 객체의 프로퍼티 Key를 순서대로 할당
+*/
+for (let key in person) {
+  const value = person[key];
+  console.log(key); // name, age, hobby
+  console.log(key, value); // name 한수영, age 27, hobby 헬스
+}

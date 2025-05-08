@@ -1,0 +1,48 @@
+/*
+  1. 배열의 구조 분해 할당
+    - let [변수명1, 변수명2, 변수명3, ... ] = 배열명
+    - 필요한 값 만큼 추출 가능
+    - 배열의 인덱스 값을 넘어서면 넘어선 인덱스 이후부터 undefined 
+        + 이러한 상황을 대비해 기본값 설정 가능
+*/
+
+let arr = [1, 2, 3];
+
+let [one, two, three] = arr; // arr 배열 원소가 순서대로 one, two, three에 할당
+console.log(one, two, three); // 1, 2, 3
+
+let [one1, two2] = arr; // arr 배열 원소가 순서대로 one1, two2에 할당
+console.log(one, two); // 1, 2
+
+let [one1_1, two2_2, three3_3, four4_4] = arr; // arr 배열 원소가 순서대로 one1_1, two2_2, three3_3, four4_4에 할당
+console.log(one1_1, two2_2, three3_3, four4_4); // 1, 2, 3, undefined
+
+let [one1_1_1, two2_2_2, three3_3_3, four4_4_4 = 4] = arr; // arr 배열 원소가 순서대로 one1_1_1, two2_2_2, three3_3_3, four4_4_4에 할당
+console.log(one1_1_1, two2_2_2, three3_3_3, four4_4_4); // 1, 2, 3, 4
+
+/*
+  2. 객체의 구조 분해 할당
+    - let {변수명1, 변수명2, 변수명3, ... } = 객체명 
+    - 존재하지 않는 객체의 프로퍼타 값을 추출하려하면면 undefined 
+        + 이러한 상황을 대비해 기본값 설정 가능
+    - 할당받는 변수의 이름 변경 가능
+    - 함수에 여러 개 인수 전달 시 많이 사용
+*/
+let person = {
+  name: "한수영",
+  age: 32,
+  hobby: "헬스",
+};
+
+let { name, age, hobby: myHobby, favoriteFood, sex = "남" } = person;
+console.log(name, age, myHobby, favoriteFood, sex); // 한수영 32 헬스 undefined 남
+
+/*
+  3. 객체 구조 분해 할당을 이용해 함수의 매개변수를 받는 방법
+    - 객체를 인수로 넘겼을 때만 구조 분해 할당 가능
+*/
+const func = ({ name, age, hobby, sex }) => {
+  console.log(name, age, hobby, sex); // 한수영 32 헬스 undefined
+};
+
+func(person); // person 객체 인수로 전달

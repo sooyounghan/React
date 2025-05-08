@@ -1,0 +1,95 @@
+/*
+  5가지 순회 탐색 메서드
+*/
+
+/*
+  1. forEach
+    - 모든 요소를 순회하면서, 각 요소를 특정 동작을 수행하는 메서드
+    - array.forEach(Callback Function)
+*/
+let arr1 = [1, 2, 3];
+arr1.forEach(function (item, idx, arr) {
+  // A. item = 1, idx = 0, arr은 arr1
+  // B. item = 2, idx = 1, arr은 arr1
+  // C. item = 3, idx = 2, arr은 arr1
+  console.log(idx, item * 2); // 0 2, 1 4, 2 6
+});
+
+let doubledArr = [];
+arr1.forEach((item) => {
+  doubledArr.push(item * 2);
+});
+
+console.log(doubledArr); // [2, 4, 6]
+
+/*
+  2. Includes
+    - 배열의 특정 요소가 있는지 확인 메서드 : true, false
+*/
+let arr2 = [1, 2, 3];
+let isInclued = arr2.includes(3);
+let isInclued2 = arr2.includes(10);
+
+console.log(isInclued); // true
+console.log(isInclued2); // false
+
+/*
+  3. IndexOf
+    - 특정 요소의 인덱스 위치를 찾아 반환
+    - 배열의 요소가 중복되면, 가장 맨앞에서 탐색해 찾은 위치 반환
+    - 배열에 존재하지 않는 값을 찾으려고 하면 -1 반환
+    - 원시 타입 값 찾을 때 사용
+    - 얕은 비교로 동작
+*/
+let arr3 = [1, 2, 3];
+let index = arr3.indexOf(2);
+
+console.log(index); // 1
+
+let arr3_2 = [1, 2, 2];
+let index_2 = arr3_2.indexOf(2);
+
+console.log(index_2); // 1
+
+let index_3 = arr3.indexOf(10);
+console.log(index_3); // -1
+
+let objectArr = [{ name: "한수영" }, { name: "홍길동" }];
+
+console.log(objectArr.indexOf({ name: "이정환" })); // -1
+
+/*
+  4. FindIndex
+    - 모든 요소를 순회하면서, 콜백함수를 만족하는 특정 요소의 인덱스(위치)를 반환하는 메서드
+    - 콜백함수를 만족 : 콜백함수의 조건이 true인 요소에 해당하는 인덱스를 맨 앞부터 탐색하면서, 가장 처음 발견한 인덱스 반환
+    - 콜백함수의 조건을 만족하지 않는다면, -1 반환
+    - 💡 indexOf는 원시 타입의 값이 들어올 때가 아닌, 객체 타입의 값이 들어오면 저장된 배열에서 정확한 요소 위치 찾을 수 없으므로, findIndex 사용
+    - 복잡한 객체 타입의 인덱스를 찾을 때 사용용
+    - 깊은 비교로 동작
+*/
+let arr4 = [1, 2, 3];
+
+const findedIndex = arr4.findIndex((item) => {
+  if (item === 2) {
+    return true;
+  }
+});
+
+console.log(findedIndex); // 1
+
+const findedIndex2 = arr4.findIndex((item) => item % 2 !== 0);
+console.log(findedIndex2); // 0
+
+const findedIndex3 = arr4.findIndex((item) => item === 100);
+console.log(findedIndex3); // -1
+
+console.log(objectArr.findIndex((item) => item.name === "한수영")); // 0
+
+/*
+  5. Find
+    - 모든 요소를 순회하면서 콜백 함수를 만족하며 요소를 찾되, 요소를 그대로 반환
+*/
+let objectArr2 = [{ name: "한수영" }, { name: "홍길동" }];
+
+const finded = objectArr2.find((item) => item.name === "한수영");
+console.log(finded); // {name : "한수영"}
