@@ -55,7 +55,7 @@ export default Button;
 */
 
 const Button = (props) => {
-  console.log(props); // {text: '메일', color: 'red'}, text: 카페, text: '블로그'} 객체 형태로 저장되어 출력
+  console.log(props); // {text: '메일', color: 'red'}, {text: 카페}, {text: '블로그'} 객체 형태로 저장되어 출력
   return (
     <button style={{ color: props.color }}>
       {/* 
@@ -140,7 +140,7 @@ function App() {
 export default App;
 ```
 
-  - props를 전달 가능 : 숫자, 문자열같은 자바스크립트 값 뿐 아니라 HTML 요소 및 컴포넌트도 가
+  - props를 전달 가능 : 숫자, 문자열같은 자바스크립트 값 뿐 아니라 HTML 요소 및 컴포넌트도 가능능
   - App.jsx
 ```jsx
 import "./App.css";
