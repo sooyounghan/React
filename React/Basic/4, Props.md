@@ -140,7 +140,7 @@ function App() {
 export default App;
 ```
 
-  - props를 전달 가능 : 숫자, 문자열같은 자바스크립트 값 뿐 아니라 HTML 요소 및 컴포넌트도 가능능
+  - props를 전달 가능 : 숫자, 문자열같은 자바스크립트 값 뿐 아니라 HTML 요소 및 컴포넌트도 가능
   - App.jsx
 ```jsx
 import "./App.css";
