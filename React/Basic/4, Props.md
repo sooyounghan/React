@@ -51,7 +51,7 @@ export default Button;
 /*
   1. Props
     - props라는 매개변수로 부모 컴포넌트로부터 전달받은 값들을 불러와 콘솔에 출력
-    - 컴포넌트에게 props를 전달해주면, 이 값들은 객체로 묶여서 자식 컴포넌트의 매개변수로 제공
+    - 💡 컴포넌트에게 props를 전달해주면, 이 값들은 객체로 묶여서 자식 컴포넌트의 매개변수로 제공
 */
 
 const Button = (props) => {
@@ -85,7 +85,7 @@ export default Button;
   - 객체 부조 분해 할당 방법을 통한 기본값 지정 방식 (Button.jsx)
 ```jsx
 const Button = ({ text, color = "black" }) => {
-  // 구조 분해 할당 방법으로 text, color를 받아오되, 구조 분해 할당 기본값 지정을 통해 color="black"으로 기본값 지정
+  // 💡 구조 분해 할당 방법으로 text, color를 받아오되, 구조 분해 할당 기본값 지정을 통해 color="black"으로 기본값 지정
   return (
     <button style={{ color: color }}>
       {/* 
