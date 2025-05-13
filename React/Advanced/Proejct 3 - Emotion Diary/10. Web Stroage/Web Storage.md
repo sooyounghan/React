@@ -197,7 +197,7 @@ function App() {
 
   // 로딩이 끝나지 않았으면 페이지가 렌더링되면 안되므로, 조건으로 로딩중 표시
   if (isLoading) {
-    setIsLoading(false); // 현재 LocalStroage에 diary Data가 존재하지 않으므로, sLoading State의 값이 영원히 true로 유지 : App 컴포넌트의 다음 조건문에 따라 영원히 "데이터 로딩중 ..."이 렌더링되므로 isLoading을 false로 변경
+    setIsLoading(false); // 현재 Local Stroage에 diary Data가 존재하지 않으므로, Loading State의 값이 영원히 true로 유지 : App 컴포넌트의 다음 조건문에 따라 영원히 "데이터 로딩중 ..."이 렌더링되므로 isLoading을 false로 변경
     return <div> 로딩중입니다..! </div>;
   }
 
