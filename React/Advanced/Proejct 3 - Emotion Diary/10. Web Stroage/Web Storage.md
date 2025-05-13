@@ -13,7 +13,7 @@
 </div>
 
 2. 웹 스토리지 (Web Storage)
-   - 현재 프로젝트는 새로고침하면 일기 데이터들이 다 초기화 : 데이터들은 결국 App 컴포넌트의 data State에 보관되기 때뭉님
+   - 현재 프로젝트는 새로고침하면 일기 데이터들이 다 초기화 : 데이터들은 결국 App 컴포넌트의 data State에 보관되기 때문임
    - React State는 내부적으로 자바스크립트의 변수에 저장된 값이므로 초기화
 <div align="center">
 <img src="https://github.com/user-attachments/assets/5bb75231-bdd8-4b2e-bc4f-492f556b904e">
@@ -65,7 +65,7 @@
 // localStorage.setItem("test", "hello");
 // localStorage.setItem("person", JSON.stringify({ name: "한수영" }));
 console.log(localStorage.getItem("test")); // hello
-console.log(JSON.parse(localStorage.getItem("person"))); //
+console.log(JSON.parse(localStorage.getItem("person"))); 
 // console.log(JSON.parse(undefined));
 localStorage.removeItem("test");
 ```
