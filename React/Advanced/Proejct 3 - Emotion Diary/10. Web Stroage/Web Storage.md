@@ -138,7 +138,7 @@ function App() {
 
     // 배열 형태가 아니면 forEach 오류 발생하므로 조건 체크
     if (!Array.isArray(parsedDate)) {
-      setIsLoading(false); // 로딩 완료료
+      setIsLoading(false); // 로딩 완료
       return;
     }
 
@@ -152,7 +152,7 @@ function App() {
 
     idRef.current = maxId; // maxId, 가장 높은 값을 idRef.current로 저장
 
-    // useEffect에서 dispatch함수가 실행 되어 state 초기값을 설정하는 순간 로딩 완료료
+    // useEffect에서 dispatch함수가 실행 되어 state 초기값을 설정하는 순간 로딩 완료
     dispatch({
       type: "INIT",
       data: parsedDate,
