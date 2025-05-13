@@ -124,7 +124,7 @@ function App() {
   const idRef = useRef(0);
 
   /*
-    1. useEffect 함수가 완료되기 전에, 즉 내부의 dispatch가 완료되지 않아서 data State 초기값이 설정되지 않았을 때, Diary 컴포넌트에서 useEffect(useDiary)가 먼저 실행되어 '존재하지 않는 일기입니다!' 발생
+    1. useEffect 함수가 완료되기 전에, 즉 내부의 dispatch가 완료되지 않아서 data State 초기값이 설정되지 않았을 때, useDiary 커스텀 훅의 useEffect()가 먼저 실행되어 '존재하지 않는 일기입니다!' 발생될 수 있음
     2. 즉, 다른 컴포넌트의 useEffect가 먼저 실행되면서 충돌 발생하므로, 로딩 기능 만들어야 함
   */
   useEffect(() => {
